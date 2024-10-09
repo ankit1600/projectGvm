@@ -180,6 +180,9 @@ body {
   background-color: #0056b3;
   height: 80px;
 }
+.bold-text {
+  font-weight: bold;
+}
 .header-lower h1 {
   font-size: 40px;
   font-weight: 100;
