@@ -33,29 +33,32 @@ body {
 /* Logo styling with a white circle behind it */
 .logo {
   position: absolute;
-  top: 50%; /* Half in upper, half in lower */
-  transform: translateY(-50%);
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3; /* Bring logo in front of other elements */
 }
 
 .logo::before {
   content: "";
   position: absolute;
-  top: 75%;
-  left: 50%;
-  width: 140px; /* Circle size */
-  height: 140px; /* Circle size */
+  top: 73%;
+  right: 45em;
+  width: 140px;
+  height: 140px;
   background-color: white;
-  border-radius: 50%; /* Makes it a circle */
-  transform: translate(-50%, -50%); /* Center the circle */
-  z-index: -1; /* Place the circle behind the logo */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 .logo img {
   height: 280px;
   width: 280px;
   position: relative;
-  top: 72px;
-  z-index: 1;
+  top: 66px;
+  right: 45em;
+  z-index: 2; /* Place the image in front of the circle */
 }
 
 /* Contact information and right-side styling */
@@ -114,58 +117,63 @@ body {
 }
 
 /* Header styling */
-.header {
-  position: relative;
-  width: 100%;
-  height: 645px; /* Adjust height as necessary */
-  overflow: hidden; /* Hide any overflow */
-  z-index: -2;
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #424242;
+  width: 21em;
 }
 
-.header-image {
-  position: relative;
-  height: 100%;
-}
-
-.header-image img {
-  width: 100%; /* Make image fill the header */
-  height: 100%; /* Full height */
-  object-fit: cover; /* Cover the header area without stretching */
-}
-
-.header-content {
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%, -50%); /* Center the content */
-  color: white; /* Text color */
-  text-align: center; /* Center text */
-}
-
-.header-content h1 {
-  font-size: 36px; /* Adjust size as needed */
-  margin-bottom: 10px;
-}
-.header-content span {
-  font-weight: bold;
-}
-.header-content p {
-  font-size: 18px; /* Adjust size as needed */
-  margin-bottom: 20px;
-}
-
-.header-button {
-  background-color: #0056b3; /* Blue button */
-  color: white;
+.cta-button {
+  margin-top: 20px;
+  background-color: #0b4a76; /* Blue background */
+  color: #ffffff;
   border: none;
-  padding: 10px 20px;
-  margin: 5px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
+  width: 219px;
+  height: 35px;
 }
 
-.header-button:hover {
-  background-color: #003f8a; /* Darker blue on hover */
+.cta-button:hover {
+  background-color: darkblue; /* Darker blue on hover */
+}
+
+.header {
+  display: flex;
+  position: relative;
+  height: 650px;
+  width: 100%;
+  z-index: 1;
+}
+
+.header-left {
+  position: absolute;
+  z-index: 1; /* Behind the logo but in front of the image */
+  background: linear-gradient(
+    98.33deg,
+    #e7c183 54%,
+    rgba(231, 193, 131, 0.88) 70.5%,
+    rgba(231, 193, 131, 0.033052) 82.61%,
+    rgba(231, 193, 131, 0) 98.71%
+  );
+
+  font-size: 20px;
+  padding: 20px;
+  height: 100%;
+  width: 50%; /* Make the gradient cover the whole width of the header */
+  display: flex;
+  align-items: center;
+}
+
+.header-right img {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  z-index: 0;
 }
 
 .header-lower {
